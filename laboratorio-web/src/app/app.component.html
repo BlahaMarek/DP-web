@@ -1,0 +1,13 @@
+<app-nav></app-nav>
+
+<div class="wrapper">
+  <aside class="aside-left" *ngIf="userSvc.getLoginStatus()">
+    <app-chat></app-chat>
+  </aside>
+  <main class="main">
+    <router-outlet></router-outlet>
+  </main>
+  <aside class="aside-right" *ngIf="userSvc.getLoginStatus()">
+    <app-reminder></app-reminder>
+  </aside>
+</div>
