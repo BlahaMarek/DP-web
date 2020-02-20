@@ -41,3 +41,11 @@ h1 {
   text-align: center;
   width: 100%;
 }
+
+li {
+  &:hover {
+    cursor: pointer;
+    transition: all 0.1s linear;
+    transform: scale(1.1);
+  }
+}

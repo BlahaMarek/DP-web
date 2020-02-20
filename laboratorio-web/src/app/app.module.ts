@@ -12,6 +12,10 @@ import { NavComponent } from './navigation/nav/nav.component';
 import {SharedModule} from './shared/shared.module';
 import { ChatComponent } from './chat/chat.component';
 import { ChatItemComponent } from './chat/chat-item/chat-item.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './shared/services/TokenInterceptor';
+import { CanActivateRouteGuard } from './guards/can-activate-route.guard';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -29,8 +33,17 @@ import { ChatItemComponent } from './chat/chat-item/chat-item.component';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
+    HttpClientModule,
+    MaterialModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
+    CanActivateRouteGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

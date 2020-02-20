@@ -22,8 +22,16 @@ export class LoginComponent implements OnInit {
   }
 
   validateCardinalities() {
-    this.userSvc.setLoginStatus(true);
-    this.router.navigate(['/projects']);
+    let user = {
+      login: this.profileForm.get('login').value,
+      password: this.profileForm.get('password').value
+    }
+
+    this.userSvc.loginUser(user).subscribe((data) => {
+      this.router.navigate(['/projects']);
+    }, (err) => {
+      console.log(err);
+    })
   }
 
 }

@@ -11,7 +11,7 @@
   <div class="side" *ngIf="userSvc.getLoginStatus()">
     <ul>
       <li>Profil</li>
-      <li>Odhlasit</li>
+      <li (click)="logoutUser()">Odhlasit</li>
     </ul>
   </div>
 
