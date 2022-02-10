@@ -23,7 +23,7 @@
     "@angular/platform-server": "^8.0.0",
     "@angular/router": "^8.0.0",
     "core-js": "^2.5.1",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "regression": "^2.0.1",
     "rxjs": "^6.5.0",
     "sass": "^1.25.0",
